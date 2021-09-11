@@ -1,0 +1,10 @@
+<p><%= @task.id %>の編集ページ</p>
+
+<%= form_with(model: @task) do |f| %>
+  <%= f.label :content, "タスク" %>
+  <%= f.text_field :content %>
+  
+  <%= f.submit "編集" %>
+<% end %>
+
+<%= link_to "戻る", tasks_path %>
