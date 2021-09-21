@@ -1,5 +1,8 @@
 <h1>タスク一覧ページ</h1>
 
+<%= link_to "SignUp", signup_path %>
+<a href="#">Login</a>
+
 <ul>
   <% @tasks.each do |task| %>
   <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
