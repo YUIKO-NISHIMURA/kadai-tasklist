@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       flash[:danger] = "登録に失敗しました"
       render :new
     end 
-  end
+  end 
   
   private
     def user_params
