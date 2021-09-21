@@ -1,15 +1,6 @@
 class UsersController < ApplicationController
-  before_action :required_user_logged_in, only:[:index, :show]
-  def index
-    @users = User.order(id: :desc)
-  end
-
   def new
     @user = User.new
-  end
-
-  def show
-    @user = User.find(params[:id])
   end
 
   def create
@@ -22,8 +13,6 @@ class UsersController < ApplicationController
       flash[:danger] = "登録に失敗しました"
       render :new
     end 
-    
-    
   end
   
   private
