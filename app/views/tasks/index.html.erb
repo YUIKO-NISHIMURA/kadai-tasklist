@@ -1,12 +1,16 @@
-<h1>タスク一覧ページ</h1>
-
-<%= link_to "SignUp", signup_path %>
-<a href="#">Login</a>
-
-<ul>
-  <% @tasks.each do |task| %>
-  <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
-  <% end %>
-</ul>
-
-<%= link_to "新規タスク作成", new_task_path %>
+<% if logged_in? %>
+  <p>ログイン完了ユーザ：<%= current_user.name %></p>
+  <%= link_to "Logout", logout_path, method: :delete %>
+  <h1>タスク一覧</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+    <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
+    <% end %>
+  </ul>
+  <%= link_to "新規タスク作成", new_task_path %>
+  
+<% else %>
+  <p>Taskを管理しよう！</p>
+  <%= link_to "SignUp", signup_path %>
+  <%= link_to "Login", login_path %>
+<% end %>
